@@ -1,0 +1,50 @@
+# PINN Temperature Analysis - Hyperparameters Configuration
+# Final tuned values from tuning2.ipynb
+
+# Model Architecture
+model:
+  layers: [3, 128, 128, 128, 1]
+  activation: "tanh"
+  input_dim: 3  # [x, z, t]
+  output_dim: 1  # temperature
+
+# Training Parameters
+training:
+  epochs: 500
+  learning_rate: 0.001
+  seed: 42
+  
+# Loss Weights (Final tuned values)
+loss_weights:
+  w_data: 0.9      # Data loss weight
+  w_pde: 1e-3      # PDE loss weight
+  
+# PDE Weight Schedule
+pde_schedule:
+  min_weight: 1e-6
+  max_weight: 0.05
+  ramp_power: 2.0
+
+# Data Processing
+data:
+  use_log_scaling: true
+  normalize_coordinates: true
+  
+# Physics Parameters
+physics:
+  alpha_early: 2e-5    # Thermal diffusivity for t <= 15s
+  alpha_late: 1.9e-5   # Thermal diffusivity for t > 15s
+  transition_time: 15.0 # Time threshold for alpha change
+
+# Training Options
+options:
+  gradient_clipping: 5.0
+  ema_decay: 0.99
+  sensor_weight_update_freq: 100
+  
+# Output Settings
+output:
+  save_model: true
+  save_predictions: true
+  generate_plots: true
+  plot_dpi: 300
