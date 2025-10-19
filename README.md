@@ -39,10 +39,7 @@ Physics-Informed Neural Network (PINN) for analyzing temperature sensor data fro
 │   ├── tuning2.ipynb
 │   ├── ad.ipynb
 │   └── gpt.ipynb
-└── results/                    # Output files
-    ├── plots/                  # Generated visualizations
-    ├── models/                 # Saved model weights
-    └── *.csv, *.json          # Results and logs
+
 ```
 
 
@@ -87,7 +84,7 @@ The temperature data was collected from a fire dynamics simulation using FDS (Fi
 - **Simulation Duration**: 600 seconds (10 minutes)
 - **Mesh Resolution**: 25×25×24 cells per mesh block with 4 mesh blocks total
 
-![Fire Simulation Setup](results/plots/system_animation.gif)
+![Fire Simulation Setup](![Fire Simulation Setup](https://github.com/AD4ourty7even/FireVentPINN/raw/master/pyrosimgif.gif))
 *Visualization of the FDS simulation showing fire development, smoke propagation, and sensor locations*
 
 **Sensor Configuration:**
